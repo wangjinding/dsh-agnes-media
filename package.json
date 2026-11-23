@@ -1,0 +1,51 @@
+{
+  "name": "@wangjinding/dsh-agnes-media",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Agnes 生图 / 生视频能力：设置页配置并测试 API Key（存 DSH 凭据库），提供 agnes_generate_image 与 agnes_generate_video 工具。",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-connection",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "author": "wangjinding",
+  "homepage": "https://github.com/wangjinding/dsh-agnes-media#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangjinding/dsh-agnes-media.git",
+    "directory": "."
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "agnes",
+    "image",
+    "video",
+    "generation",
+    "media"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  }
+}

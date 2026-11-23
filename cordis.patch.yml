@@ -1,0 +1,15 @@
+# dsh-agnes-media bundle patch
+#
+# 做三件事：
+#   ① 设置页加一个「Agnes 生成」分区：填 API Key、保存、测试、清除
+#   ② 把 Key 存进 DSH 的凭据库（credentials），不是配置文件 —— 明文不落 cordis.patch.yml
+#   ③ 提供两个工具：agnes_generate_image / agnes_generate_video
+#
+# 凭据存放优先级（由 dsh-credentials 决定）：
+#   凭据库里存的 AGNES_API_KEY  >  启动 dsh 时的环境变量 AGNES_API_KEY
+#
+# 回滚：从 ~/.dsh/profiles/web/package.json 的 dsh.profile.bundles 里删掉本包，再重启即可。
+
+- insert:
+    - id: agnes-media
+      name: "@wangjinding/dsh-agnes-media"
